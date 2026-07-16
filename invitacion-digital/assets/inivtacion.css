@@ -1,0 +1,445 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #e8f5e9;
+    background-image: radial-gradient(circle at 20% 50%, #c8e6c9 0%, #e8f5e9 60%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /*
+    
+    */
+    font-family: "Fleur De Leah", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kavoon {
+  font-family: "Kavoon", serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.container {
+    position: relative;
+    width: 450px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* El sobre principal */
+.envelope-wrapper {
+    position: relative;
+    width: 380px;
+    height: 240px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 10;
+    margin-bottom: 30px;
+    perspective: 1000px;
+}
+
+.envelope-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.envelope-wrapper.opened {
+    transform: translateY(20px);
+    margin-bottom: 50px;
+}
+
+/* Cuerpo rectangular del sobre */
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    width: 380px;
+    height: 180px;
+    background: linear-gradient(160deg, #b5e0c5 0%, #7ec8a0 50%, #5fa882 100%);
+    border-radius: 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.3);
+    z-index: 2;
+    overflow: visible;
+}
+
+/* Efecto de textura en el cuerpo */
+.envelope-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        rgba(255,255,255,0.3) 0%, 
+        rgba(255,255,255,0.1) 30%, 
+        transparent 50%);
+    pointer-events: none;
+    border-radius: 5px;
+}
+
+/* Líneas decorativas del sobre (bordes) */
+.envelope-body::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1.5px solid rgba(46, 125, 50, 0.2);
+    border-radius: 3px;
+    pointer-events: none;
+}
+
+/* Solapa inferior del sobre (parte de atrás que se ve en la base) */
+.envelope-back-flap {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    border-top: 110px solid #7ec8a0;
+    z-index: 1;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    pointer-events: none;
+}
+
+/* Solapa frontal del sobre (la que se abre) */
+.envelope-front-flap {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 165px solid transparent;
+    border-right: 165px solid transparent;
+    border-top: 140px solid #a8d5ba;
+    z-index: 6;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.3));
+    cursor: pointer;
+    transform-origin: top center;
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(-50%) rotateX(0deg);
+}
+
+/* Borde decorativo en la solapa */
+.envelope-front-flap::after {
+    content: "";
+    position: absolute;
+    top: -130px;
+    left: -140px;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 120px solid #c5e8d0;
+    z-index: -1;
+}
+
+/* Sello decorativo - ahora en verde menta */
+.stamp {
+    position: absolute;
+    top: 120px;
+    right: 95px;
+    width: 55px;
+    height: 65px;
+    background: #2e7d32;
+    border: 3px dashed #c8e6c9;
+    z-index: 7;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: all 0.8s ease;
+    pointer-events: none;
+    transform: rotate(3deg);
+    background-image: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #1b5e20 100%);
+}
+
+.stamp span {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Carta que sale */
+.letter-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 15;
+}
+
+.letter {
+    width: 380px;
+    max-width: 90%;
+    background: #f1f8e9;
+    background-image: linear-gradient(#f5fbf0 0%, #e8f5e9 100%);
+    border-radius: 8px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    max-height: 0;
+    overflow: hidden;
+    border: 2px solid #a5d6a7;
+    box-sizing: border-box;
+    pointer-events: auto;
+}
+
+.letter.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    max-height: 2000px;
+    margin-top: 20px;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
+    overflow: visible;
+}
+
+.letter-content {
+    text-align: center;
+    color: #2e3b2e;
+}
+
+.letter-content h1 {
+    color: #2e7d32;
+    margin: 0 0 15px 0;
+    font-size: 32px;
+    letter-spacing: 2px;
+    display: inline-block;
+}
+
+.letter-content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.letter-content p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.letter-content .details {
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.letter-content .details strong {
+    color: #1b5e20;
+    font-size: 18px;
+}
+
+/* Secciones de ceremonia y recepción */
+.ceremony-info, .reception-info {
+    background: rgba(129, 199, 132, 0.15);
+    border-left: 3px solid #66bb6a;
+    padding: 12px 15px;
+    margin: 15px 0;
+    border-radius: 0 8px 8px 0;
+    text-align: left;
+}
+
+.ceremony-info p, .reception-info p {
+    margin: 5px 0;
+}
+
+.final-message {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    color: #2e7d32;
+}
+
+.letter-content .signature {
+    margin-top: 25px;
+    font-style: italic;
+    color: #2e7d32;
+    font-size: 18px;
+    border-top: 1px solid #81c784;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+/* Botón de mapa */
+.map-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #66bb6a, #43a047);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border: none;
+    cursor: pointer;
+}
+
+.map-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+
+.instruction {
+    color: #2e7d32;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+    z-index: 5;
+    position: relative;
+    margin-top: 10px;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Partículas decorativas */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.particle {
+    position: absolute;
+    font-size: 18px;
+    opacity: 0;
+    animation: none;
+}
+
+.particle.animate {
+    animation: floatParticle 1.5s ease-out forwards;
+}
+
+@keyframes floatParticle {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0);
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(1.2);
+    }
+}
+
+.reset-btn {
+    background: #2e7d32;
+    color: #e8f5e9;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-family: 'Kavoon', serif;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 20;
+    position: relative;
+    margin-top: 15px;
+}
+
+.reset-btn:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Efecto de borde decorativo en la carta */
+.letter::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid #81c784;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 20px 10px;
+    }
+    
+    .envelope-wrapper {
+        width: 300px;
+        height: 200px;
+    }
+    
+    .envelope-body {
+        width: 300px;
+        height: 150px;
+    }
+    
+    .envelope-back-flap {
+        border-left-width: 150px;
+        border-right-width: 150px;
+        border-top-width: 90px;
+    }
+    
+    .envelope-front-flap {
+        top: 50px;
+        border-left-width: 130px;
+        border-right-width: 130px;
+        border-top-width: 120px;
+    }
+    
+    .envelope-front-flap::after {
+        top: -110px;
+        left: -110px;
+        border-left-width: 110px;
+        border-right-width: 110px;
+        border-top-width: 100px;
+    }
+    
+    .stamp {
+        top: 100px;
+        right: 70px;
+        width: 45px;
+        height: 55px;
+    }
+    
+    .letter {
+        width: 90%;
+        padding: 20px 15px;
+    }
+}

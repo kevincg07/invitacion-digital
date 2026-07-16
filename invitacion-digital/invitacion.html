@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra boda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/inivtacion.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sobre rediseñado -->
+        <div class="envelope-wrapper" id="envelopeWrapper">
+            <!-- Cuerpo rectangular del sobre -->
+            <div class="envelope-body"></div>
+            
+            <!-- Solapa trasera (base del sobre) -->
+            <div class="envelope-back-flap"></div>
+            
+            <!-- Solapa frontal (la que se abre hacia arriba) -->
+            <div class="envelope-front-flap" id="envelopeFlapTop"></div>
+            
+            <!-- Sello en la solapa frontal -->
+            <div class="stamp" id="stamp">
+                <span><br>Abrir</span>
+            </div>
+        </div>
+        
+        <!-- Carta separada del sobre -->
+        <div class="letter-container">
+            <div class="letter" id="letter">
+                <div class="letter-content">
+                    <p>Con la Bendicion de nuestros padres:</p>
+                    <p>Ines y Reyna Gonzalez</p>
+                    <p>Erasto y Cristina Garcia</p>
+                    <h1>Gaby y Kev</h1>
+                    <img src="assets/img/anillos.png" width="100" height="100">
+                    <p>Te invitamos coordialmente a:</p>
+                    <h1>Nuestra Boda</h3>
+                    <div class="details">
+                      <p>📅 <strong>19 de Setptienbre, 2026</strong></p>
+                        <p>⛪Ceremonia religiosa 13:00 hrs. Parroquia Nuestra Señora de la Nieves, Santa María del Monte Vicente Guerrero (<a href="https://maps.app.goo.gl/7rbriKnfTvzHp34j7">🗺️ Ver ubicación</a>)</p>
+                        <h1>Nuestros Padrinos</h1>
+                        <p>Blas Hernandez y Leonila Guzman</p>
+                        <p>📍Explanada de la oficina ejidal de San Bernardino Lagunas 15:00 hrs.<a href="https://maps.app.goo.gl/bYVu9dNbRC9vWyNh9">🗺️ Ver ubicación</a></p>
+                    </div>
+                    <div class="signature">
+                        Con cariño,<br>✨ La Familia Cruz Quiahua ✨
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instruction" id="instruction">
+            Haz clic en la solapa del sobre para abrirlo
+        </div>
+        
+        <button class="reset-btn" id="resetBtn">Cerrar Sobre 🔒</button>
+        
+        <!-- Contenedor de partículas -->
+        <div class="particles" id="particlesContainer"></div>
+    </div>
+
+    <script src="js/invitacion.js"></script>
+</body>
+</html>
