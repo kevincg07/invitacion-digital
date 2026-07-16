@@ -8,12 +8,9 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
-    /*
-    
-    */
-    font-family: "Fleur De Leah", cursive;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Quintessential", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .kavoon {
