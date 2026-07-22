@@ -278,6 +278,13 @@ body {
     display: inline-block;
 }
 
+.letter-content .signature_dos{
+    color: #2e7d32;
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+}
+
 /* Botón de mapa */
 .map-button {
     display: inline-block;
