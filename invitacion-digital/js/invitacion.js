@@ -1,4 +1,43 @@
 (function() {
+    // Cuenta regresiva hacia la boda (19 de septiembre de 2026, 1:00 pm hora CDMX)
+    const weddingDate = new Date('2026-09-19T13:00:00-06:00').getTime();
+    const cdDays = document.getElementById('cd-days');
+    const cdHours = document.getElementById('cd-hours');
+    const cdMinutes = document.getElementById('cd-minutes');
+    const cdSeconds = document.getElementById('cd-seconds');
+
+    function pad(n) {
+        return String(n).padStart(2, '0');
+    }
+
+    function updateCountdown() {
+        const now = Date.now();
+        const diff = weddingDate - now;
+
+        if (diff <= 0) {
+            cdDays.textContent = '00';
+            cdHours.textContent = '00';
+            cdMinutes.textContent = '00';
+            cdSeconds.textContent = '00';
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        cdDays.textContent = pad(days);
+        cdHours.textContent = pad(hours);
+        cdMinutes.textContent = pad(minutes);
+        cdSeconds.textContent = pad(seconds);
+    }
+
+    if (cdDays) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+
     const envelopeWrapper = document.getElementById('envelopeWrapper');
     const envelopeFlapTop = document.getElementById('envelopeFlapTop');
     const letter = document.getElementById('letter');

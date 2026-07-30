@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra boda</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/inivtacion.css">
+    <title>Gaby y Kev | Nuestra Boda</title>
+    <meta name="description" content="Nos casamos el 19 de septiembre de 2026. Acompáñanos en este día tan especial.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/invitacion.css">
 </head>
 <body>
     <div class="container">
@@ -16,59 +17,105 @@
         <div class="envelope-wrapper" id="envelopeWrapper">
             <!-- Cuerpo rectangular del sobre -->
             <div class="envelope-body"></div>
-            
+
             <!-- Solapa trasera (base del sobre) -->
             <div class="envelope-back-flap"></div>
-            
+
             <!-- Solapa frontal (la que se abre hacia arriba) -->
             <div class="envelope-front-flap" id="envelopeFlapTop"></div>
-            
+
             <!-- Sello en la solapa frontal -->
             <div class="stamp" id="stamp">
                 <span><br>Abrir</span>
             </div>
         </div>
-        
+
         <!-- Carta separada del sobre -->
         <div class="letter-container">
             <div class="letter" id="letter">
                 <div class="letter-content">
-                    <p>Con la Bendicion de nuestros padres:</p>
-                    <p>Ines y Reyna Gonzalez</p>
-                    <p>Erasto y Cristina Garcia</p>
-                    <h1>Gaby y Kev</h1>
-                    <img src="assets/img/anillos.png" width="100" height="100">
-                    <p>Te invitamos coordialmente a:</p>
-                    <h1>Nuestra Boda</h3>
+                    <p>Con la bendición de nuestros padres:</p>
+                    <p>Inés y Reyna González</p>
+                    <p>Erasto y Cristina García</p>
+                    <h1 class="kavoon">Gaby &amp; Kev</h1>
+                    <img src="assets/img/anillos.png" width="100" height="100" alt="Anillos de boda entrelazados">
+                    <p>Te invitamos cordialmente a:</p>
+                    <h1 class="kavoon">Nuestra Boda</h1>
+
+                    <!-- Cuenta regresiva -->
+                    <div class="countdown" id="countdown" aria-live="polite">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="cd-days">00</span>
+                            <span class="countdown-label">Días</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="cd-hours">00</span>
+                            <span class="countdown-label">Hrs</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="cd-minutes">00</span>
+                            <span class="countdown-label">Min</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="cd-seconds">00</span>
+                            <span class="countdown-label">Seg</span>
+                        </div>
+                    </div>
+
                     <div class="details">
-                      <p><strong>19 de Septiembre, 2026</strong></p>
-                        <p>⛪Ceremonia religiosa 1:00 pm. Parroquia Nuestra Señora de la Nieves, Santa María del Monte Vicente Guerrero (<a href="https://maps.app.goo.gl/7rbriKnfTvzHp34j7">🗺️ Ver ubicación</a>)</p>
-                        <h1>Nuestros Padrinos</h1>
+                        <p class="fecha-destacada"><strong>19 de Septiembre, 2026</strong></p>
+
+                        <div class="ceremony-info">
+                            <p>⛪ <strong>Ceremonia religiosa</strong> — 1:00 pm</p>
+                            <p>Parroquia Nuestra Señora de las Nieves, Santa María del Monte Vicente Guerrero</p>
+                            <a class="map-button" href="https://maps.app.goo.gl/7rbriKnfTvzHp34j7" target="_blank" rel="noopener">🗺️ Ver ubicación</a>
+                        </div>
+
+                        <h1 class="kavoon">Nuestros Padrinos</h1>
                         <div class="signature_dos">
                             <p>Velación</p>
-                            <p>Blas Hernandez y Leonila Guzman</p>
+                            <p>Blas Hernández y Leonila Guzmán</p>
                         </div>
-                        <p>Isabel Guzmán y Martha Luz Gonzalez</p>
-                        <p>Beatris Jalyn Quiahua</p>
-                        <p>Valentin Cruz y Silvina Cruz</p>
-                        <p>Geronimo Gonzalez</p>
-                        <p>Alan Gerardo Cruz</p>
-                        <p>Gelasio Efrain Cabrera y Natalia Soriano</p>
-                        <p>📍Explanada de la oficina ejidal de San Bernardino Lagunas 3:00 pm<a href="https://maps.app.goo.gl/bYVu9dNbRC9vWyNh9">🗺️ Ver ubicación</a></p>
+                        <div class="padrinos-list">
+                            <p>Isabel Guzmán y Martha Luz González</p>
+                            <p>Beatriz Jalyn Quiahua</p>
+                            <p>Valentín Cruz y Silvina Cruz</p>
+                            <p>Gerónimo González</p>
+                            <p>Alan Gerardo Cruz</p>
+                            <p>Gelasio Efraín Cabrera y Natalia Soriano</p>
+                        </div>
+
+                        <div class="reception-info">
+                            <p>📍 <strong>Recepción</strong> — 4:00 pm</p>
+                            <p>Explanada de la oficina ejidal de San Bernardino Lagunas</p>
+                            <a class="map-button" href="https://maps.app.goo.gl/bYVu9dNbRC9vWyNh9" target="_blank" rel="noopener">🗺️ Ver ubicación</a>
+                        </div>
+
+                        <div class="dress-code">
+                            <h1 class="kavoon">Código de Vestimenta</h1>
+                            <p>Por favor evitar el color blanco, reservado para la novia 🤍</p>
+                        </div>
+
+                        <div class="rsvp-section">
+                            <h1 class="kavoon">Confirma tu Asistencia</h1>
+                            <p>Nos encantaría contar contigo.</p>
+                            <a class="map-button rsvp-button" href="https://wa.me/522361038703?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Gaby%20y%20Kev%20%F0%9F%92%8D" target="_blank" rel="noopener">💌 Confirmar por WhatsApp</a>
+                        </div>
                     </div>
+
                     <div class="signature">
                         Con cariño,<br>✨ La Familia Cruz Quiahua ✨
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="instruction" id="instruction">
             Haz clic en la solapa del sobre para abrirlo
         </div>
-        
+
         <button class="reset-btn" id="resetBtn">Cerrar Sobre</button>
-        
+
         <!-- Contenedor de partículas -->
         <div class="particles" id="particlesContainer"></div>
     </div>
